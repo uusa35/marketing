@@ -1,0 +1,26 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+// Variables
+@import "variables";
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+html,body {
+  height: 100%;
+}
+body {
+  background-image: url('../../../public/images/bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container-fluid {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#login {
+  min-width: 70%;
+}

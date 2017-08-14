@@ -1,0 +1,24 @@
+@import './../../../node_modules/font-awesome/css/font-awesome.min.css';
+@import '../../../../../metronic_v4.5.6/theme/assets/global/plugins/bootstrap/css/bootstrap.min.css';
+@import '../../../../../metronic_v4.5.6/theme/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css';
+@import '../../../node_modules/datatables/media/css/jquery.dataTables.min.css';
+@import '../../../../../metronic_v4.5.6/theme/assets/global/plugins/jquery-multi-select/css/multi-select.css';
+@import '../../../../../metronic_v4.5.6/theme/assets/global/plugins/select2/css/select2.min.css';
+@import '../../../../../metronic_v4.5.6/theme/assets/global/plugins/select2/css/select2-bootstrap.min.css';
+@import '../../../../../metronic_v4.5.6/theme/assets/global/css/components-md.min.css';
+@import '../../../../../metronic_v4.5.6/theme/assets/global/css/plugins-md.min.css';
+@import '../../../../../metronic_v4.5.6/theme/assets/layouts/layout/css/layout.min.css';
+@import '../../../../../metronic_v4.5.6/theme/assets/layouts/layout/css/themes/darkblue.min.css';
+@import '../../../../../metronic_v4.5.6/theme/assets/layouts/layout/css/custom.min.css';
+@import '../../../../../metronic_v4.5.6/theme/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css';
+@import '../../../node_modules/bootstrap3-wysihtml5-bower/src/bootstrap3-wysihtml5.css';
+@import '../../../../../metronic_v4.5.6/theme/assets/global/plugins/bootstrap-summernote/summernote.css';
+@media (min-width: 992px) {
+  .page-content-wrapper .page-content {
+    min-height: 800px;
+  }
+}
+
+.page-header.navbar .top-menu .navbar-nav > li.dropdown-extended .dropdown-menu .dropdown-menu-list > li > a {
+  padding: 8px 8px 12px;
+}
