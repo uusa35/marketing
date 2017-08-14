@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Quotation;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\Mail;
 
 class QuotationController extends Controller
 {
@@ -101,5 +103,15 @@ class QuotationController extends Controller
             return redirect()->route('quotation.index')->with('success', 'process success');
         }
         return redirect()->route('quotation.index')->with('error', 'process error');
+    }
+
+    public function send(Request $request) {
+
+        $element = Quotation::whereId($request->id)->first();
+        $element->update(['approved' => true]);
+//        return view('backend.email',compact('element'));
+        $element = new \App\Mail\Quotation($element);
+        return Mail::to('uusa35@gmail.com')->send($element);
+
     }
 }

@@ -93,6 +93,10 @@
                                             <i class="fa fa-fw fa-user"></i>toggle approve</a>
                                     </li>
                                     <li>
+                                        <a href="{{ route('quotation.send',['id' => $element->id]) }}">
+                                            <i class="fa fa-fw fa-user"></i>approve & send </a>
+                                    </li>
+                                    <li>
                                         <form method="post" action="{{ route('quotation.destroy',$element->id) }}">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="_method" value="delete"/>

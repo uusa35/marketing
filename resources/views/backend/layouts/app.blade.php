@@ -12,8 +12,7 @@
     <link rel="shortcut icon" href="{{ asset('images/icon.ico') }}"/>
 </head>
 
-<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-md">
-
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-sidebar-closed">
 @include('backend.partials.nav')
 <div class="clearfix"></div>
 <div class="page-container">
