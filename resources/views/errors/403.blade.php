@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>7orof.com</title>
+        <title>{{ env('APP_NAME') }}</title>
 
         <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
@@ -39,18 +39,20 @@
         </style>
     </head>
     <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">{{ trans('general.error') }}</div>
-                <div class="title">
-                    العودة إلى الصفحة الرئيسية
-                </div>
-                <div class="">
-                    <a href="{{ url('/auth/logout') }}" class="">
-                        عودة
-                    </a>
-                </div>
+    <div class="container">
+        <div class="content">
+            <div class="title">Error Occured !!!</div>
+            <div class="title">
+                <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                      style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+                <a href="{{ url('logout') }}" class=""
+                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();
+                    ">Home</a>
             </div>
         </div>
+    </div>
     </body>
 </html>
