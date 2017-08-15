@@ -11,12 +11,12 @@
 |
 */
 
-Route::group(['middleware' => 'auth', 'activeUser'], function () {
+Route::group(['middleware' => 'auth', 'ActiveUser'], function () {
     Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('approve', 'HomeController@toggleApprove')->name('quotation.approve');
     Route::resource('quotation', 'QuotationController', ['except' => 'destroy']);
-    Route::group(['middleware' => 'adminOnly'], function () {
+    Route::group(['middleware' => 'AdminAccessOnly'], function () {
         Route::resource('quotation', 'QuotationController', ['only' => 'destroy']);
         Route::get('send', 'QuotationController@send')->name('quotation.send');
         Route::get('accept','QuotationController@accept')->name('quotation.accept');
