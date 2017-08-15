@@ -60,7 +60,7 @@
                             </div>
 
                             <div class="form-group">
-                                <div class="col-md-2 col-md-push-10">
+                                <div class="col-md-5 col-md-push-7">
                                     <button type="submit" class="btn btn-warning">
                                         Login
                                     </button>
@@ -68,6 +68,9 @@
                                     {{--<a class="btn btn-link" href="{{ route('password.request') }}">--}}
                                         {{--Forgot Your Password?--}}
                                     {{--</a>--}}
+                                    <a class="btn btn-info" href="{{ route('register') }}">
+                                        Register
+                                    </a>
                                 </div>
                             </div>
                         </form>
