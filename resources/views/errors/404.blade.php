@@ -41,10 +41,16 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">{{ trans('general.error') }}</div>
+                <div class="title">لم يتم تفعيل العضوية</div>
                 <div class="title">
-                    <a href="{{ url('auth/logout') }}" class=""></a>
-                    العودة إلى الصفحة الرئيسية
+                    <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                          style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                    <a href="{{ url('logout') }}" class=""
+                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();
+                    ">الصفحة الرئيسية</a>
                 </div>
             </div>
         </div>
