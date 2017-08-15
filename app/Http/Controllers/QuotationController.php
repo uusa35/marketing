@@ -42,7 +42,9 @@ class QuotationController extends Controller
      */
     public function store(Request $request)
     {
-        $element = Quotation::create($request->all());
+        $request->request->remove('files');
+//        $request->request->add(['content' => htmlentities($request->get('content'))]);
+        $element = Quotation::create($request->request->all());
         if ($element) {
             return redirect()->route('quotation.index')->with('success', 'process success');
         }
@@ -105,13 +107,13 @@ class QuotationController extends Controller
         return redirect()->route('quotation.index')->with('error', 'process error');
     }
 
-    public function send(Request $request) {
+    public function send(Request $request)
+    {
 
         $element = Quotation::whereId($request->id)->first();
-        $element->update(['approved' => true]);
-//        return view('backend.email',compact('element'));
+        $element->update(['approved' => true, 'sent' => true]);
         $element = new \App\Mail\Quotation($element);
-        return Mail::to('uusa35@gmail.com')->send($element);
-
+        $mail = Mail::to('uusa35@gmail.com')->send($element);
+        return redirect()->route('quotation.index')->with('success', 'Approved & Sent Successfully');
     }
 }

@@ -27,7 +27,7 @@
                 <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                        data-close-others="true">
-                        <i class="fa fa-fw fa-plus-circle"></i>
+                        <i class="fa fa-fw fa-gears"></i>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="external">
@@ -37,9 +37,23 @@
                         </li>
                         <li>
                             <a href="{{ route('quotation.create') }}">
-                                <span class="details"><i class="fa fa-fw fa-plus-square"></i> Create New Quotation</span>
+                                <span class="details"><i
+                                            class="fa fa-fw fa-plus-square"></i> Create New Quotation</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ url('/logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                Log Out </a>
+                            </a>
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                                  style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul
                 </li>
                 <!-- END USER LOGIN DROPDOWN -->
                 <!-- BEGIN QUICK SIDEBAR TOGGLER -->
@@ -49,7 +63,7 @@
                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
                     >
-                        <span class="fa fa-sign-out" aria-hidden="true"></span>
+                        <span class="fa fa-sign-out" aria-hidden="true"></span> Logout
                     </a>
                 </li>
                 <!-- END QUICK SIDEBAR TOGGLER -->

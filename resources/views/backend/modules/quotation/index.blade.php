@@ -18,8 +18,9 @@
                 <th>discount</th>
                 <th>net_total</th>
                 {{--<th>hints</th>--}}
-                <th>approved</th>
                 <th>user</th>
+                <th>approved</th>
+                <th>sent</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -37,8 +38,9 @@
                 <th>discount</th>
                 <th>net_total</th>
                 {{--<th>hints</th>--}}
-                <th>approved</th>
                 <th>user</th>
+                <th>approved</th>
+                <th>sent</th>
                 <th>action</th>
             </tr>
             </tfoot>
@@ -68,12 +70,19 @@
                     <td>{{ $element->discount  }}</td>
                     <td>{{ $element->net_total  }}</td>
                     {{--<td>{{ $element->hints  }}</td>--}}
+                    <td>{{ $element->user->name }}</td>
                     <td>
                         <span class="label {{ activeLabel($element->approved) }}">
                             <i class="fa fa-fw fa-check-circle"></i>
+                            {{ $element->approved ? 'approved' : 'N/A' }}
                         </span>
                     </td>
-                    <td>{{ $element->user->name }}</td>
+                    <td>
+                        <span class="label {{ activeLabel($element->sent) }}">
+                            <i class="fa fa-fw fa-check-circle"></i>
+                            {{ $element->sent ? 'sent' : 'N/A' }}
+                        </span>
+                    </td>
                     <td>
                         <div class="btn-group pull-right">
                             <button type="button" class="btn green btn-sm btn-outline dropdown-toggle"

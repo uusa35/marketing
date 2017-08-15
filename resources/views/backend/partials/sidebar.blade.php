@@ -10,7 +10,8 @@
         <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
         <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
         <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-            <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-closed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+        <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu-closed " data-keep-expanded="false"
+            data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
             <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
             <li class="sidebar-toggler-wrapper">
                 <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
@@ -25,20 +26,23 @@
 
             <li class="nav-item start">
                 <a href="{{ route('quotation.index') }}" class="nav-link ">
-                    <i class="fa fa-fw fa-user"></i>
+                    <i class="fa fa-fw fa-newspaper-o"></i>
                     <span class="title">Quotations</span>
                 </a>
             </li>
             <li class="nav-item start ">
                 <a href="{{ route('quotation.create') }}" class="nav-link ">
-                    <i class="fa fa-fw fa-users"></i>
+                    <i class="fa fa-fw fa-pencil-square"></i>
                     <span class="title">create new quotation</span>
                 </a>
             </li>
             @if(auth()->user()->isAdmin)
+                <li class="heading">
+                    <h3 class="uppercase">Users Section</h3>
+                </li>
                 <li class="nav-item start">
                     <a href="{{ route('user.index') }}" class="nav-link ">
-                        <i class="fa fa-fw fa-user"></i>
+                        <i class="fa fa-fw fa-user-circle-o"></i>
                         <span class="title">users</span>
                     </a>
                 </li>

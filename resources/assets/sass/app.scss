@@ -5,12 +5,14 @@
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 
-html,body {
+html, body {
   height: 100%;
 }
+
 body {
   background-image: url('../../../public/images/bg.jpg');
   background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -23,4 +25,11 @@ body {
 
 #login {
   min-width: 70%;
+  padding-bottom: 6%;
+}
+
+.login-panel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }

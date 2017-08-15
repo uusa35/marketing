@@ -21,6 +21,10 @@
                 width: 100% !important;
             }
         }
+        @import url('https://fonts.googleapis.com/css?family=Cairo:600&subset=arabic');
+        html, body, p, div, a, h1, h2, h3, h4, h5, table, tr, td, th {
+            font-family: 'Cairo', sans-serif !important;
+        }
     </style>
 
     <table class="wrapper" width="100%" cellpadding="0" cellspacing="0">

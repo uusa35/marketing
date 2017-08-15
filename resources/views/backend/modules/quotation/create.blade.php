@@ -69,7 +69,7 @@
 
                         <div class="form-group">
                             <div class="col-md-10">
-                                <textarea name="content" class="form-control"></textarea>
+                                <textarea name="content" class="form-control summernote"></textarea>
                             </div>
                             <label class="col-md-2 control-label">محتوى الجدول</label>
                         </div>
@@ -108,7 +108,7 @@
 
                         <div class="form-group">
                             <div class="col-md-10">
-                                <textarea name="hints" class="form-control" style="min-height: 100px"></textarea>
+                                <textarea name="hints" class="form-control summernote" style="min-height: 100px"></textarea>
                                 {{--summernote--}}
                             </div>
                             <label class="col-md-2 control-label">ملاحظات</label>

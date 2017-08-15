@@ -8356,8 +8356,9 @@ body {
 }
 
 body {
-  background-image: url(/images/bg.jpg?a8ca7060a9ea88142955a5ec3125239a);
+  background-image: url(/images/bg.jpg?7ab15ffc7353c899801dfb863e652ef8);
   background-position: center;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -8376,5 +8377,18 @@ body {
 
 #login {
   min-width: 70%;
+  padding-bottom: 6%;
+}
+
+.login-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 

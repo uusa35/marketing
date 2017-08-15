@@ -26,13 +26,13 @@ class QuotationCreateTest extends DuskTestCase
                 ->type('input[name=subject]','الموضوع عرض سعر كذا كذا كذا')
                 ->type('input[name=brief]','تحية طيبة وبعد سيتم الوضع في الاعتبار كذا وكذا')
                 ->type('input[name=title]','عنوان الجدول هنا')
-                ->type('textarea[name=content]','بنود عرض لاسعر هنا')
+//                ->type('textarea[name=content]','بنود عرض لاسعر هنا')
                 ->type('input[name=price]',1234)
                 ->type('input[name=total]',1234)
                 ->type('input[name=discount]',12)
                 ->type('input[name=net_total]',1234)
-                ->type('textarea[name=hints]','بعض الملاحظات لااخرى هنا')
-                ->pause(10000);
+//                ->type('textarea[name=hints]','بعض الملاحظات لااخرى هنا')
+                ->pause(10000000);
         });
     }
 }

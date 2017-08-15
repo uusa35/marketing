@@ -13,6 +13,14 @@
 @import '../../../../../metronic_v4.5.6/theme/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css';
 @import '../../../node_modules/bootstrap3-wysihtml5-bower/src/bootstrap3-wysihtml5.css';
 @import '../../../../../metronic_v4.5.6/theme/assets/global/plugins/bootstrap-summernote/summernote.css';
+//@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+//@import url('https://fonts.googleapis.com/css?family=Cairo');
+@import url('https://fonts.googleapis.com/css?family=Cairo:600&subset=arabic');
+
+html, body, p, div, a, h1, h2, h3, h4, h5, table, tr, td, th {
+  font-family: 'Cairo', sans-serif !important;
+}
+
 @media (min-width: 992px) {
   .page-content-wrapper .page-content {
     min-height: 800px;

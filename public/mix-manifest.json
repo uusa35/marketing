@@ -1,8 +1,7 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/css/backend.css": "/css/backend.css",
     "/js/backend.js": "/js/backend.js",
-    "/js/backend-custom.js": "/js/backend-custom.js",
-    "/0.bb3cdaff3544c1f2a9f6.hot-update.js": "/0.bb3cdaff3544c1f2a9f6.hot-update.js",
-    "/css/backend.css": "/css/backend.css"
+    "/js/backend-custom.js": "/js/backend-custom.js"
 }

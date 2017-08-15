@@ -5,7 +5,16 @@
         <div class="row" style="opacity: 0.7;">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default" >
-                    <div class="panel-heading">Login</div>
+                    <div class="panel-heading">
+                        <div class="login-panel">
+                            <div class="col-lg-1">
+                                <img src="{{ asset('images/logo.jpg') }}" alt="" class="img-responsive text-left" style="max-width: 50px;">
+                            </div>
+                            <div class="col-lg-10">
+                                <h5 style="padding-left: 20px;">IdeasOwners</h5>
+                            </div>
+                        </div>
+                    </div>
                     <div class="panel-body">
                         <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                             {{ csrf_field() }}
@@ -52,7 +61,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-2 col-md-push-10">
-                                    <button type="submit" class="btn btn-success">
+                                    <button type="submit" class="btn btn-warning">
                                         Login
                                     </button>
 
