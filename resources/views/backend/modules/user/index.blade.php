@@ -36,7 +36,9 @@
                         <span class="label {{ activeLabel($element->active) }}">active</span>
                     </td>
                     <td>
-                        <span class="label {{ activeLabel($element->admin) }}">admin</span>
+                        <span class="label {{ activeLabel($element->admin) }}">
+                            {{ $element->admin ? 'admin' : 'N/A' }}
+                        </span>
                     </td>
                     <td>{{ $element->created_at->diffForHumans() }}</td>
                     <td>
