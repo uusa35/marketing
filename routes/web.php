@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['middleware' => 'auth', 'ActiveUser'], function () {
+Route::group(['middleware' => ['auth', 'ActiveUser']], function () {
     Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('approve', 'HomeController@toggleApprove')->name('quotation.approve');
@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth', 'ActiveUser'], function () {
 });
 
 Auth::routes();
+
 if (!app()->environment('production') && Schema::hasTable('users')) {
     Route::get('/logwith/{id}', function ($id) {
         Auth::loginUsingId($id);
