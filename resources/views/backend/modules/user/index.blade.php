@@ -33,7 +33,9 @@
                     <td>{{ $element->name }}</td>
                     <td>{{ $element->email }}</td>
                     <td>
-                        <span class="label {{ activeLabel($element->active) }}">active</span>
+                        <span class="label {{ activeLabel($element->active) }}">
+                            {{ $element->active ? 'active' : 'N/A' }}
+                        </span>
                     </td>
                     <td>
                         <span class="label {{ activeLabel($element->admin) }}">
