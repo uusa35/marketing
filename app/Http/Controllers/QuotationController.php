@@ -111,10 +111,11 @@ class QuotationController extends Controller
     public function send(Request $request)
     {
 
-        $element = Quotation::whereId($request->id)->first();
-        $element->update(['approved' => true, 'sent' => true]);
-        $element = new \App\Mail\Quotation($element);
-        $mail = Mail::to('uusa35@gmail.com')->send($element);
+        $quotation = Quotation::whereId($request->id)->first();
+        $quotation->update(['approved' => true, 'sent' => true]);
+        $element = new \App\Mail\Quotation($quotation);
+        $emails = explode(';', $quotation->receivers);
+        Mail::to(array_values($emails))->queue($element);
         return redirect()->route('quotation.index')->with('success', 'Approved & Sent Successfully');
     }
 }
