@@ -110,7 +110,8 @@ img {
 .header {
     padding: 25px 0;
     text-align: center;
-    background-color: #dfdb18;
+    /*background-color: #dfdb18;*/
+    background-color: black;
 }
 
 .header a {

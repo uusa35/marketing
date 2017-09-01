@@ -1,15 +1,18 @@
 @component('mail::message')
-<div style="text-align: left">
-    التاريخ : {{ Carbon\Carbon::today()->format('m/d/Y') }}
+<div style="text-align: left;">
+    التاريخ : {{ Carbon\Carbon::today()->format('d/m/Y') }}
 </div>
 # عرض سعر رقم {{ $element->id }}
-# تحية طيبة وبعد،،
+<strong style="direction: rtl; float: right;"> السادة / {{ $element->to }}</strong>
+<br>
+
+# تحية طيبة وبعد
 {!! $element->brief !!}
 </br>
 @component('mail::table')
-| السعر       | {{ $element->title }}         | م.  |
+| السعر       | {{ $element->title }}         |  |
 | ------------- |:-------------:| --------:|
-| {{ $element->price }}         | <div style="direction: rtl !important;">{!! $element->content !!}</div>           | 1         |
+| {{ $element->price }}         | <div style="direction: rtl !important;">{!! $element->content !!}</div>           |          |
 | {{ $element->total  }}        | الإجمالي             |           |
 | {{ $element->discount  }}     | الخصم         |           |
 | {{ $element->net_total  }}    | الإجمالي بعد الخصم      |           |
@@ -25,7 +28,7 @@
 <hr>
 
 @component('mail::panel')
-<div style="direction: rtl !important;">
+<div style="font-size: large direction: rtl !important;">
 {!! $element->hints !!}
     </div>
 @endcomponent
@@ -36,7 +39,7 @@
 @endcomponent
 
 
-<div style="text-align: center; width: 30%; float: left;">
+<div style="text-align: center; width: 100%; float: left; font-weight: bolder;">
     مع تحيات,<br>
     شركة أصحاب أفكار
 </div>
