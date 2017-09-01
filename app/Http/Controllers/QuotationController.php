@@ -115,7 +115,13 @@ class QuotationController extends Controller
         $quotation->update(['approved' => true, 'sent' => true]);
         $element = new \App\Mail\Quotation($quotation);
         $emails = explode(';', $quotation->receivers);
-        Mail::to(array_values($emails))->queue($element);
+        $users = [];
+        foreach($emails as $key => $ut){
+            $ua = [];
+            $ua['email'] = $ut;
+            $users[$key] = (object)$ua;
+        }
+        Mail::to($users)->send($element);
         return redirect()->route('quotation.index')->with('success', 'Approved & Sent Successfully');
     }
 }
