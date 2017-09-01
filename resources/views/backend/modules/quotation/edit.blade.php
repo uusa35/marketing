@@ -51,7 +51,7 @@
                                 <div class="help-block pull-right">
                                     يتم كتابة البريد الإلكتروني فقط وكتابه فاصلة بين كل بريد إلكتروني مضاف هكذا :
                                     </br>
-                                    email@test.com, another@email.com
+                                    email@test.com; another@email.com; ...
                                 </div>
                             </div>
                             <label class="col-md-2 control-label">مرسل إلى </label>
