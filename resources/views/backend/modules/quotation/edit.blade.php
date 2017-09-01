@@ -1,81 +1,121 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="portlet light bordered">
-        <div class="portlet-title">
-            <div class="caption">
-                <i class="icon-settings font-dark"></i>
-                <span class="caption-subject font-dark sbold uppercase">Create New Field</span>
-            </div>
-        </div>
-        <div class="portlet-body form">
-            <form class="form-horizontal" role="form" method="post" action="{{ route('quotation.update',$element->id) }}">
-                {{ csrf_field() }}
-                <input type="hidden" name="_method" value="put">
-                <div class="form-body">
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">Name</label>
-                        <div class="col-md-10">
-                            <input type="text" name="name" value="{{ $element->name }}" class="form-control" placeholder="Enter text" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">label Ar</label>
-                        <div class="col-md-10">
-                            <input type="text" name="label_ar" value="{{ $element->label_ar }}" class="form-control" placeholder="Enter text" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">label En</label>
-                        <div class="col-md-10">
-                            <input type="text" name="label_en" value="{{ $element->label_en }}" class="form-control" placeholder="Enter text" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="icon" class="col-md-2 control-label">{{ trans('general.icon') }}</label>
-
-                        <div class="col-md-10">
-                            {{ Form::select('icon', $icons,$element->icon, ['class' => 'form-control']) }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="type" class="col-md-2 control-label">{{ trans('general.type') }}</label>
-
-                        <div class="col-md-10">
-                            {{ Form::select('type', $types,$element->type, ['class' => 'form-control']) }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">is_required</label>
-                        <div class="col-md-10">
-                            <div class="mt-checkbox-list">
-                                <label class="mt-checkbox">
-                                    <input type="checkbox" name="is_required" value="1" {{ $element->is_required ? 'checked' : null }}> is Required
-                                    <span></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">is_model</label>
-                        <div class="col-md-10">
-                            <div class="mt-checkbox-list">
-                                <label class="mt-checkbox">
-                                    <input type="checkbox" name="is_model" value="1" {{ $element->is_model ? 'checked' : null }}> is modal
-                                    <span></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-md-2 control-label">Collection Name</label>
-                        <div class="col-md-10">
-                            <input type="text" name="collection_name" value="{{ $element->collection_name }}" class="form-control" placeholder="Enter text">
-                        </div>
-                    </div>
-                    @include('backend.partials.forms._btn-group')
+    <div class="col-lg-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject font-dark sbold uppercase">Edit Quotation</span>
                 </div>
-            </form>
+            </div>
+            <div class="portlet-body form">
+                <form class="form-horizontal" role="form" method="post" action="{{ route('quotation.update',$element->id) }}">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="to" value="{{ $element->to }}" class="form-control"
+                                       placeholder="To .." required>
+                            </div>
+                            <label class="col-md-2 control-label">السادة</label>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="from" value="{{ $element->from }}" class="form-control"
+                                       placeholder="To .." required>
+                            </div>
+                            <label class="col-md-2 control-label">اسم الشركه للتوقيع</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="subject" value="{{ $element->subject }}" class="form-control"
+                                       placeholder="Enter text" required>
+                            </div>
+                            <label class="col-md-2 control-label">عنوان عرض السعر</label>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="brief" value="{{ $element->brief }}" class="form-control"
+                                       placeholder="Enter text" required>
+                            </div>
+                            <label class="col-md-2 control-label">محتوى عرض السعر</label>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="receivers" class="form-control" placeholder="Enter text" value="{{ $element->receivers }}">
+                                <div class="help-block pull-right">
+                                    يتم كتابة البريد الإلكتروني فقط وكتابه فاصلة بين كل بريد إلكتروني مضاف هكذا :
+                                    </br>
+                                    email@test.com, another@email.com
+                                </div>
+                            </div>
+                            <label class="col-md-2 control-label">مرسل إلى </label>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="title" value="{{ $element->title }}" class="form-control"
+                                       placeholder="Enter text" required>
+                            </div>
+                            <label class="col-md-2 control-label">عنوان الجدول</label>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <textarea name="content" class="form-control summernote">{{ $element->brief }}</textarea>
+                            </div>
+                            <label class="col-md-2 control-label">محتوى الجدول</label>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="price" value="{{ $element->price }}" class="form-control"
+                                       placeholder="Enter text" required>
+                            </div>
+                            <label class="col-md-2 control-label">السعر</label>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="total" value="{{ $element->total }}" class="form-control"
+                                       placeholder="Enter text">
+                            </div>
+                            <label class="col-md-2 control-label">الإجمالي</label>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="discount" value="{{ $element->discount }}" class="form-control"
+                                       placeholder="Enter text">
+                            </div>
+                            <label class="col-md-2 control-label">الخصم</label>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="net_total" value="{{ $element->net_total }}" class="form-control"
+                                       placeholder="Enter text">
+                            </div>
+                            <label class="col-md-2 control-label">الإجمالي بعد الخصم</label>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <textarea name="hints" class="form-control summernote" style="min-height: 100px">{{ $element->hints }}</textarea>
+                                {{--summernote--}}
+                            </div>
+                            <label class="col-md-2 control-label">ملاحظات</label>
+                        </div>
+
+
+                        @include('backend.partials.forms._btn-group')
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 @endsection
