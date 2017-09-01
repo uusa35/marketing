@@ -84,6 +84,7 @@ class QuotationController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->request->remove('files');
         $element = Quotation::whereId($id)->first();
         if ($element->update($request->all())) {
             return redirect()->route('quotation.index')->with('success', 'process success');
