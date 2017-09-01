@@ -13,6 +13,7 @@
                 <form class="form-horizontal" role="form" method="post" action="{{ route('quotation.update',$element->id) }}">
                     {{ csrf_field() }}
                     <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                    <input type="hidden" name="_method" value="put">
                     <div class="form-body">
                         <div class="form-group">
                             <div class="col-md-10">
