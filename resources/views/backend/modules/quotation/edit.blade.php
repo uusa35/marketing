@@ -67,7 +67,9 @@
 
                         <div class="form-group">
                             <div class="col-md-10">
-                                <textarea name="content" class="form-control summernote">{{ $element->brief }}</textarea>
+                                <textarea name="content" class="form-control summernote" style="min-height: 100px">
+                                    {!! $element->content !!}
+                                </textarea>
                             </div>
                             <label class="col-md-2 control-label">محتوى الجدول</label>
                         </div>
