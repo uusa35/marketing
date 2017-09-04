@@ -28,7 +28,7 @@
 <hr>
 
 @component('mail::panel')
-<div style="font-size: large direction: rtl !important;">
+<div style="font-size: large; font-weight: bold; direction: rtl !important;">
 {!! $element->hints !!}
     </div>
 @endcomponent
