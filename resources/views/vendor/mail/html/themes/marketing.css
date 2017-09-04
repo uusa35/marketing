@@ -303,9 +303,9 @@ img {
     border-bottom : 3px solid gray;
 }
 .header-inside {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
 }
 .logo {
     padding: 10px;
