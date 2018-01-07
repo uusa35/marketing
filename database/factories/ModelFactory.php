@@ -13,6 +13,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 use App\Models\Quotation;
+use App\Models\Template;
 use App\Models\User;
 
 $factory->define(User::class, function (Faker\Generator $faker) {
@@ -43,6 +44,14 @@ $factory->define(Quotation::class, function (Faker\Generator $faker) {
         'hints' => $faker->paragraph(),
         'approved' => $faker->boolean(),
         'sent' => $faker->boolean(false),
-        'user_id' => User::all()->random()->id,
+        'user_id' => User::all()->random()->id
+    ];
+});
+
+$factory->define(Template::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'url' => $faker->randomElement([1, 2, 3]) . '.pdf',
+        'active' => 1
     ];
 });

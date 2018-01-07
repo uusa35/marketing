@@ -19,11 +19,12 @@ Route::group(['middleware' => ['auth', 'ActiveUser']], function () {
     Route::group(['middleware' => 'AdminAccessOnly'], function () {
         Route::resource('quotation', 'QuotationController', ['only' => 'destroy']);
         Route::get('send', 'QuotationController@send')->name('quotation.send');
-        Route::get('accept','QuotationController@accept')->name('quotation.accept');
-        Route::get('approve', 'HomeController@toggleApprove')->name('quotation.approve');
-        Route::get('admin', 'HomeController@toggleAdmin')->name('user.admin');
-        Route::get('active', 'HomeController@toggleActive')->name('user.active');
-        Route::resource("user", 'UserController');
+        Route::get('accept','QuotationController@accept')->name('toggle.accept');
+        Route::get('approve', 'HomeController@toggleApprove')->name('toggle.approve');
+        Route::get('admin', 'HomeController@toggleAdmin')->name('toggle.admin');
+        Route::get('active', 'HomeController@toggleActive')->name('toggle.active');
+        Route::resource('user', 'UserController');
+        Route::resource('template', 'TemplateController');
     });
 });
 

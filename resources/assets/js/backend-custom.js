@@ -16,6 +16,5 @@ $(document).ready(function() {
         autoclose : true,
         locale: 'ru'
     });
-    console.log('testing');
     $(".summernote").summernote({height:300})
 });

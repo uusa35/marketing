@@ -11,13 +11,7 @@
                 <th>from</th>
                 <th>receivers</th>
                 <th>subject</th>
-                {{--<th>brief</th>--}}
-                {{--<th>content</th>--}}
-                <th>price</th>
-                <th>total</th>
-                <th>discount</th>
-                <th>net_total</th>
-                {{--<th>hints</th>--}}
+                <th>templates</th>
                 <th>user</th>
                 <th>approved</th>
                 <th>sent</th>
@@ -31,17 +25,11 @@
                 <th>from</th>
                 <th>receivers</th>
                 <th>subject</th>
-                {{--<th>brief</th>--}}
-                {{--<th>content</th>--}}
-                <th>price</th>
-                <th>total</th>
-                <th>discount</th>
-                <th>net_total</th>
-                {{--<th>hints</th>--}}
+                <th>templates</th>
                 <th>user</th>
                 <th>approved</th>
                 <th>sent</th>
-                <th>action</th>
+                <th>Action</th>
             </tr>
             </tfoot>
             <tbody>
@@ -63,13 +51,23 @@
                         @endif
                     </td>
                     <td>{{ $element->subject  }}</td>
-                    {{--<td>{{ $element->brief  }}</td>--}}
-                    {{--<td>{{ $element->content  }}</td>--}}
-                    <td>{{ $element->price  }}</td>
-                    <td>{{ $element->total  }}</td>
-                    <td>{{ $element->discount  }}</td>
-                    <td>{{ $element->net_total  }}</td>
-                    {{--<td>{{ $element->hints  }}</td>--}}
+                    <td>
+                        @if(!$element->templates->isEmpty())
+                            @if($element->templates->count() > 1)
+                                <ul>
+                                    @foreach($element->templates as $temp)
+
+                                        <li>
+                                            {{ $temp->name }}
+                                        </li>
+
+                                    @endforeach
+                                </ul>
+                            @else
+                                {{ $temp->name }}
+                            @endif
+                        @endif
+                    </td>
                     <td>{{ $element->user->name }}</td>
                     <td>
                         <span class="label {{ activeLabel($element->approved) }}">
@@ -98,7 +96,7 @@
                                 @endif
                                 @if(auth()->user()->isAdmin)
                                     <li>
-                                        <a href="{{ route('quotation.approve',['model' => 'quotation', 'id' => $element->id]) }}">
+                                        <a href="{{ route('toggle.approve',['model' => 'quotation', 'id' => $element->id]) }}">
                                             <i class="fa fa-fw fa-user"></i>toggle approve</a>
                                     </li>
                                     <li>

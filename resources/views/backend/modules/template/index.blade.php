@@ -8,9 +8,8 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>email</th>
+                <th>pdf file</th>
                 <th>active</th>
-                <th>admin</th>
                 <th>Created At</th>
                 <th>Action</th>
             </tr>
@@ -19,9 +18,8 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>email</th>
+                <th>file name</th>
                 <th>active</th>
-                <th>admin</th>
                 <th>Created At</th>
                 <th>Action</th>
             </tr>
@@ -31,15 +29,10 @@
                 <tr>
                     <td>{{ $element->id }}</td>
                     <td>{{ $element->name }}</td>
-                    <td>{{ $element->email }}</td>
+                    <td><a href="{{ asset('storage/uploads/files/'.$element->url) }}" class="btn btn-warning">View PDF</a></td>
                     <td>
                         <span class="label {{ activeLabel($element->active) }}">
                             {{ $element->active ? 'active' : 'N/A' }}
-                        </span>
-                    </td>
-                    <td>
-                        <span class="label {{ activeLabel($element->admin) }}">
-                            {{ $element->admin ? 'admin' : 'N/A' }}
                         </span>
                     </td>
                     <td>{{ $element->created_at->diffForHumans() }}</td>
@@ -51,12 +44,17 @@
                             </button>
                             <ul class="dropdown-menu pull-right" role="menu">
                                 <li>
-                                    <a href="{{ route('toggle.active',['model' => 'user','id' => $element->id]) }}">
+                                    <a href="{{ route('toggle.active',['model' => 'template','id' => $element->id]) }}">
                                         <i class="fa fa-fw fa-check-circle"></i> toggle active</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('toggle.admin',['model' => 'user', 'id' => $element->id]) }}">
-                                        <i class="fa fa-fw fa-check-circle"></i> Toggle Admin</a>
+                                    <form method="post" action="{{ route('template.destroy',$element->id) }}">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" name="_method" value="delete"/>
+                                        <button type="submit" class="btn btn-outline btn-sm red">
+                                            <i class="fa fa-remove"></i>delete template
+                                        </button>
+                                    </form>
                                 </li>
                             </ul>
                         </div>

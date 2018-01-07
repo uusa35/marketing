@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quotation;
+use App\Models\Template;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class QuotationController extends Controller
 {
@@ -31,7 +33,8 @@ class QuotationController extends Controller
      */
     public function create()
     {
-        return view('backend.modules.quotation.create');
+        $temps = Template::active()->get();
+        return view('backend.modules.quotation.create', compact('temps'));
     }
 
     /**
@@ -42,9 +45,20 @@ class QuotationController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'to' => 'required',
+            'from' => 'required',
+            'receivers' => 'required',
+            'temps' => 'required|array',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('template.create')->withErrors($validator);
+        }
+
         $request->request->remove('files');
-//        $request->request->add(['content' => htmlentities($request->get('content'))]);
-        $element = Quotation::create($request->request->all());
+        $element = Quotation::create($request->except('temps'));
+        $element->templates()->attach($request->temps);
         if ($element) {
             return redirect()->route('quotation.index')->with('success', 'process success');
         }
@@ -72,7 +86,10 @@ class QuotationController extends Controller
     public function edit($id)
     {
         $element = Quotation::whereId($id)->first();
-        return view('backend.modules.quotation.edit', compact('element'));
+        $elementTemps = $element->templates->pluck('url','id');
+        dd($elementTemps);
+        $temps = Template::active()->get();
+        return view('backend.modules.quotation.edit', compact('element','temps'));
     }
 
     /**
@@ -86,7 +103,8 @@ class QuotationController extends Controller
     {
         $request->request->remove('files');
         $element = Quotation::whereId($id)->first();
-        if ($element->update($request->all())) {
+        if ($element->update($request->except('temps'))) {
+            $element->templates()->sync($request->temps);
             return redirect()->route('quotation.index')->with('success', 'process success');
         }
         return redirect()->route('quotation.index')->with('error', 'process error');
@@ -102,6 +120,7 @@ class QuotationController extends Controller
     public function destroy($id)
     {
         $element = Quotation::whereId($id)->first();
+        $element->templates->sync([]);
         if ($element->delete()) {
             return redirect()->route('quotation.index')->with('success', 'process success');
         }

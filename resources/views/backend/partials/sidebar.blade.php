@@ -37,14 +37,33 @@
                 </a>
             </li>
             @if(auth()->user()->isAdmin)
-                <li class="heading">
-                    <h3 class="uppercase">Users Section</h3>
-                </li>
                 <li class="nav-item start">
                     <a href="{{ route('user.index') }}" class="nav-link ">
                         <i class="fa fa-fw fa-user-circle-o"></i>
                         <span class="title">users</span>
                     </a>
+                </li>
+                <li class="nav-item start">
+                    <a href="javascript:;" class="nav-link nav-toggle">
+                        <i class="fa fa-fw fa-id-card"></i>
+                        <span class="title">Templates</span>
+                        <span class="selected"></span>
+                        <span class="arrow open"></span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="nav-item start">
+                            <a href="{{ route('template.index') }}" class="nav-link ">
+                                <i class="fa fa-fw fa-id-card"></i>
+                                <span class="title">Templates</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('template.create') }}" class="nav-link ">
+                                <i class="fa fa-fw fa-plus"></i>
+                                <span class="title">create temp</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             @endif
         </ul>
