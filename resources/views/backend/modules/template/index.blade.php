@@ -48,14 +48,18 @@
                                         <i class="fa fa-fw fa-check-circle"></i> toggle active</a>
                                 </li>
                                 <li>
-                                    <form method="post" action="{{ route('template.destroy',$element->id) }}">
-                                        {{ csrf_field() }}
-                                        <input type="hidden" name="_method" value="delete"/>
-                                        <button type="submit" class="btn btn-outline btn-sm red">
-                                            <i class="fa fa-remove"></i>delete template
-                                        </button>
-                                    </form>
+                                    <a href="{{ route('template.edit',$element->id) }}">
+                                        <i class="fa fa-fw fa-check-circle"></i> edit template</a>
                                 </li>
+                                {{--<li>--}}
+                                    {{--<form method="post" action="{{ route('template.destroy',$element->id) }}">--}}
+                                        {{--{{ csrf_field() }}--}}
+                                        {{--<input type="hidden" name="_method" value="delete"/>--}}
+                                        {{--<button type="submit" class="btn btn-outline btn-sm red">--}}
+                                            {{--<i class="fa fa-remove"></i>delete template--}}
+                                        {{--</button>--}}
+                                    {{--</form>--}}
+                                {{--</li>--}}
                             </ul>
                         </div>
                     </td>

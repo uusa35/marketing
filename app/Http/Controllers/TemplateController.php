@@ -77,7 +77,7 @@ class TemplateController extends Controller
     public function edit($id)
     {
         $element = Template::whereId($id)->first();
-        return view('backend.modules.tempalte.edit', compact('element'));
+        return view('backend.modules.template.edit', compact('element'));
     }
 
     /**
@@ -91,14 +91,15 @@ class TemplateController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            "file" => "required|mimes:pdf|max:10000"
+            "url" => "required|mimes:pdf|max:10000"
         ]);
 
         if ($validator->fails()) {
             return redirect()->route('template.edit', $id)->withErrors($validator);
         }
-        $template = Template::whereId($id)->first()->update(['name' => $request->name]);
-        if ($template) {
+        $template = Template::whereId($id)->first();
+
+        if ($template->update(['name' => $request->name])) {
             if ($request->hasFile('url')) {
                 $this->saveMimes($template, $request, ['url']);
             }
