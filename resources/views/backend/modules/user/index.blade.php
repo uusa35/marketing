@@ -58,6 +58,12 @@
                                     <a href="{{ route('toggle.admin',['model' => 'user', 'id' => $element->id]) }}">
                                         <i class="fa fa-fw fa-check-circle"></i> Toggle Admin</a>
                                 </li>
+                                @if(auth()->user()->isAdmin)
+                                    <li>
+                                        <a href="{{ url('backend/reset/password/'.$element->id) }}">
+                                            <i class="fa fa-fw fa-check-circle"></i> reset password</a>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                     </td>

@@ -29,8 +29,11 @@ class Quotation extends Mailable
      */
     public function build()
     {
-        $attachments = $this->element->templates->pluck('url');
-        dd($attachments);
-        return $this->markdown('emails.quotation');
+        $temps = $this->element->templates->pluck('url');
+        foreach($temps as $k => $v) {
+            $this->attach(asset('storage/uploads/files/'.$v));
+        }
+        return $this->subject($this->element->subject)->markdown('emails.quotation');
+
     }
 }

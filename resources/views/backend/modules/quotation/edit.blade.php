@@ -31,6 +31,25 @@
                             <label class="col-md-2 control-label">اسم الشركه للتوقيع</label>
                         </div>
 
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="subject" value="{{ $element->subject }}" class="form-control"
+                                       placeholder="Enter text" required>
+                            </div>
+                            <label class="col-md-2 control-label">*عنوان عرض السعر</label>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="receivers" value="{{ $element->receivers }}" class="form-control" placeholder="Enter text" required>
+                                <div class="help-block pull-right">
+                                    يتم كتابة البريد الإلكتروني فقط وكتابه فاصلة بين كل بريد إلكتروني مضاف هكذا :
+                                    </br>
+                                    email@test.com; another@email.com; ...
+                                </div>
+                            </div>
+                            <label class="col-md-2 control-label">مرسل إلى *</label>
+                        </div>
 
                         <hr>
                         <h5 class="text-center">اختيار القالب ـ التمبلت الذي سيتم ارفاقه مع عرض السعر</h5>
@@ -41,7 +60,7 @@
                                     <div class="col-md-10">
                                         <div class="mt-checkbox-list">
                                             <label class="mt-checkbox">
-                                                <input type="checkbox" name="temps[]" {{ in_array($temp->id,$element->te) }}
+                                                <input type="checkbox" name="temps[]" {{ in_array($temp->id,$elementTemps, true) ? 'checked' : null }}
                                                        value="{{ $temp->id }}"> {{ $temp->name }}
                                                 <span></span>
                                             </label>
@@ -54,6 +73,14 @@
                         <hr>
                         </br>
 
+
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <textarea name="brief" class="form-control summernote"
+                                          style="min-height: 100px">{{ $element->brief }}</textarea>
+                            </div>
+                            <label class="col-md-2 control-label">محتوى عرض السعر</label>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-md-10">

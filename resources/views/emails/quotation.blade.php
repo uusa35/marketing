@@ -9,14 +9,14 @@
 # تحية طيبة وبعد
 {!! $element->brief !!}
 </br>
-@component('mail::table')
-| السعر       | {{ $element->title }}         |  |
-| ------------- |:-------------:| --------:|
-| {{ $element->price }}         | <div style="direction: rtl !important;">{!! $element->content !!}</div>           |          |
-| {{ $element->total  }}        | الإجمالي             |           |
-| {{ $element->discount  }}     | الخصم         |           |
-| {{ $element->net_total  }}    | الإجمالي بعد الخصم      |           |
-@endcomponent
+{{--@component('mail::table')--}}
+{{--| السعر       | {{ $element->title }}         |  |--}}
+{{--| ------------- |:-------------:| --------:|--}}
+{{--| {{ $element->price }}         | <div style="direction: rtl !important;">{!! $element->content !!}</div>           |          |--}}
+{{--| {{ $element->total  }}        | الإجمالي             |           |--}}
+{{--| {{ $element->discount  }}     | الخصم         |           |--}}
+{{--| {{ $element->net_total  }}    | الإجمالي بعد الخصم      |           |--}}
+{{--@endcomponent--}}
 {{--@component('mail::table')--}}
 {{--| Prices       | {{ $element->title }}         | S.  |--}}
 {{--| ------------- |:-------------:| --------:|--}}

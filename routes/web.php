@@ -25,6 +25,8 @@ Route::group(['middleware' => ['auth', 'ActiveUser']], function () {
         Route::get('active', 'HomeController@toggleActive')->name('toggle.active');
         Route::resource('user', 'UserController');
         Route::resource('template', 'TemplateController');
+        Route::get('backend/reset/password/{id}','UserController@getResetPassword');
+        Route::post('backend/reset/password','UserController@postResetPassword');
     });
 });
 

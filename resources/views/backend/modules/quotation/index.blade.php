@@ -56,15 +56,18 @@
                             @if($element->templates->count() > 1)
                                 <ul>
                                     @foreach($element->templates as $temp)
-
                                         <li>
-                                            {{ $temp->name }}
+                                            <a href="{{ asset('storage/uploads/files/'.$temp->url) }}">{{$temp->name }}</a>
                                         </li>
 
                                     @endforeach
                                 </ul>
                             @else
-                                {{ $temp->name }}
+                                <ul>
+                                    <li>
+                                        <a href="{{ asset('storage/uploads/files/'.$element->templates->first()->url) }}">{{$element->templates->first()->name }}</a>
+                                    </li>
+                                </ul>
                             @endif
                         @endif
                     </td>

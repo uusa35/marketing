@@ -42,6 +42,12 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('template.create') }}">
+                                <span class="details"><i
+                                            class="fa fa-fw fa-plus-square"></i> Create New Template</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ url('/logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

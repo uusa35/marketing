@@ -20,21 +20,27 @@
                 </div>
                 <!-- END SIDEBAR TOGGLER BUTTON -->
             </li>
-            <li class="heading">
-                <h3 class="uppercase">Quotation Section</h3>
-            </li>
-
             <li class="nav-item start">
-                <a href="{{ route('quotation.index') }}" class="nav-link ">
-                    <i class="fa fa-fw fa-newspaper-o"></i>
-                    <span class="title">Quotations</span>
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-fw fa-id-card"></i>
+                    <span class="title">Qutation Section</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
                 </a>
-            </li>
-            <li class="nav-item start ">
-                <a href="{{ route('quotation.create') }}" class="nav-link ">
-                    <i class="fa fa-fw fa-pencil-square"></i>
-                    <span class="title">create new quotation</span>
-                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start">
+                        <a href="{{ route('quotation.index') }}" class="nav-link ">
+                            <i class="fa fa-fw fa-newspaper-o"></i>
+                            <span class="title">Quotations</span>
+                        </a>
+                    </li>
+                    <li class="nav-item start ">
+                        <a href="{{ route('quotation.create') }}" class="nav-link ">
+                            <i class="fa fa-fw fa-pencil-square"></i>
+                            <span class="title">create new quotation</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
             @if(auth()->user()->isAdmin)
                 <li class="nav-item start">

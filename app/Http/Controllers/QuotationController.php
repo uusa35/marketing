@@ -21,7 +21,7 @@ class QuotationController extends Controller
         if (auth()->user()->isAdmin) {
             $elements = Quotation::with('user')->get();
         } else {
-            $elements = Quotation::where('user_id', auth()->user()->id)->all();
+            $elements = Quotation::where('user_id', auth()->user()->id)->get();
         }
         return view('backend.modules.quotation.index', compact('elements'));
     }
@@ -86,10 +86,9 @@ class QuotationController extends Controller
     public function edit($id)
     {
         $element = Quotation::whereId($id)->first();
-        $elementTemps = $element->templates->pluck('url','id');
-        dd($elementTemps);
+        $elementTemps = $element->templates->pluck('id')->toArray();
         $temps = Template::active()->get();
-        return view('backend.modules.quotation.edit', compact('element','temps'));
+        return view('backend.modules.quotation.edit', compact('element','temps','elementTemps'));
     }
 
     /**
