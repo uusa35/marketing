@@ -119,7 +119,7 @@ class QuotationController extends Controller
     public function destroy($id)
     {
         $element = Quotation::whereId($id)->first();
-        $element->templates->detach($element->templates->pluck('id')->toArray());
+        $element->templates()->detach($element->templates->pluck('id')->toArray());
         if ($element->delete()) {
             return redirect()->route('quotation.index')->with('success', 'process success');
         }
