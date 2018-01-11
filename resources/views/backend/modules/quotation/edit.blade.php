@@ -25,6 +25,14 @@
 
                         <div class="form-group">
                             <div class="col-md-10">
+                                <input type="text" name="mobile" value="{{ $element->mobile }}" class="form-control"
+                                       placeholder="هاتف العميل">
+                            </div>
+                            <label class="col-md-2 control-label">هاتف العميل</label>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-10">
                                 <input type="text" name="from" value="{{ $element->from }}" class="form-control"
                                        placeholder="To .." required>
                             </div>

@@ -3,12 +3,12 @@
     التاريخ : {{ Carbon\Carbon::today()->format('d/m/Y') }}
 </div>
 # عرض سعر رقم {{ $element->id }}
-<strong style="direction: rtl; float: right;"> السادة / {{ $element->to }}</strong>
+<strong style="direction: rtl; float: right;"> {{ $element->to }}</strong>
 <br>
 
 # تحية طيبة وبعد
 {!! $element->brief !!}
-</br>
+<br>
 {{--@component('mail::table')--}}
 {{--| السعر       | {{ $element->title }}         |  |--}}
 {{--| ------------- |:-------------:| --------:|--}}
@@ -35,12 +35,39 @@
 
 
 @component('mail::button', ['url' => 'http://ideasowners.net'])
-<strong>Ideasowners - شركة أصحاب أفكار</strong>
+<strong>Ideasowners</strong>
 @endcomponent
 
 
 <div style="text-align: center; width: 100%; float: left; font-weight: bolder;">
     مع تحيات,<br>
     شركة أصحاب أفكار
+</div>
+<hr>
+<div style="text-align: left; width: 100%; float: left; font-weight: bolder; font-size: small;">
+
+    <span><strong>Ideas Owners Company</strong></span><br>
+
+    <span><strong>Phone:</strong> +965-98824010 </span><br>
+
+    <span><strong>website:</strong> ideasowners.net </span><br>
+
+    <span>Youtube: IdeasOwners</span><br>
+
+    <span><strong></strong>Instagram - Linkedin</span><br>
+
+    <strong>Our Services:</strong><br>
+
+    <span>Website Development</span><br>
+
+    <span>Mobile  Apps Development</span><br>
+
+    <span>Online  Markting Advertisement</span><br>
+
+    <span>Social  Media Management</span><br>
+
+    <strong>location :</strong><br>
+    <span>Kuwait -Sharq - Khaled Ibn Al-Waleed St-</span><br>
+    <span>Sawaber 6 Tower - Floor 3 - Office 6</span>
 </div>
 @endcomponent

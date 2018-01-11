@@ -17,6 +17,7 @@ class CreateQuotationsTable extends Migration
             $table->string('to')->nullable();
             $table->string('from')->nullable();
             $table->string('receivers')->nullable();
+            $table->string('mobile')->nullable();
             $table->mediumText('subject')->nullable();
             $table->mediumText('brief')->nullable();
             $table->mediumText('title')->nullable();

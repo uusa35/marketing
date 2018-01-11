@@ -33,6 +33,7 @@ $factory->define(Quotation::class, function (Faker\Generator $faker) {
         'to' => $faker->name,
         'from' => $faker->name,
         'receivers' => $faker->email,
+        'mobile' => $faker->numberBetween(111111111, 999999999),
         'subject' => $faker->name,
         'title' => $faker->name,
         'brief' => $faker->sentence(6),

@@ -20,9 +20,16 @@
                         <div class="form-group">
                             <div class="col-md-10">
                                 <input type="text" name="to" value="{{ old('to') }}" class="form-control"
-                                       placeholder="To .." required>
+                                       placeholder="السيد - السادة / .......... المحترم،،،" required>
                             </div>
-                            <label class="col-md-2 control-label">*السادة</label>
+                            <label class="col-md-2 control-label">*السادة / السيد </label>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="mobile" value="{{ old('mobile') }}" class="form-control"
+                                       placeholder="هاتف العميل">
+                            </div>
+                            <label class="col-md-2 control-label">هاتف العميل</label>
                         </div>
 
                         <div class="form-group">
@@ -30,7 +37,7 @@
                                 <input type="text" name="from" value="شركة أصحاب أفكار" class="form-control"
                                        placeholder="To .." required>
                             </div>
-                            <label class="col-md-2 control-label">*اسم الشركه للتوقيع</label>
+                            <label class="col-md-2 control-label">*مع تحيات</label>
                         </div>
                         <div class="form-group">
                             <div class="col-md-10">
@@ -80,7 +87,11 @@
                         <div class="form-group">
                             <div class="col-md-10">
                                 <textarea name="brief" class="form-control summernote"
-                                          style="min-height: 100px"></textarea>
+                                          style="min-height: 100px">
+                                    بالاشارة الى الموضوع اعلاه نرفق لكم عرض السعر المطلوب حسب مكالمتنا الهاتفية
+
+                                    مع تمنايتنا ان ينال العرض على رضاكم وثقتكم 
+                                </textarea>
                             </div>
                             <label class="col-md-2 control-label">محتوى عرض السعر</label>
                         </div>
