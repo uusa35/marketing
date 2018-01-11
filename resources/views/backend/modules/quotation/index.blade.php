@@ -8,6 +8,7 @@
             <tr>
                 <th>Id</th>
                 <th>to</th>
+                <th>mobile</th>
                 <th>from</th>
                 <th>receivers</th>
                 <th>subject</th>
@@ -22,6 +23,7 @@
             <tr>
                 <th>Id</th>
                 <th>to</th>
+                <th>mobile</th>
                 <th>from</th>
                 <th>receivers</th>
                 <th>subject</th>
@@ -37,6 +39,7 @@
                 <tr>
                     <td>{{ $element->id  }}</td>
                     <td>{{ $element->to  }}</td>
+                    <td>{{ $element->mobile }}</td>
                     <td>{{ $element->from  }}</td>
                     <td>
                         @if(strpos($element->recievers,';') !== 'false')
