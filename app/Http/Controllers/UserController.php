@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $elements = User::all();
+        $elements = User::orderBy('id','asc')->get();
         return view('backend.modules.user.index', compact('elements'));
     }
 
