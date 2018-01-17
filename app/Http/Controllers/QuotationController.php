@@ -53,7 +53,7 @@ class QuotationController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('template.create')->withErrors($validator);
+            return redirect()->route('quotation.create')->withErrors($validator);
         }
 
         $request->request->remove('files');

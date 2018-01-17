@@ -6,7 +6,14 @@
         {!! csrf_field() !!}
         <input type="hidden" name="_method" value="put">
         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-            <label class="col-md-4 control-label">{{ trans('general.email') }} </label>
+            <label class="col-md-4 control-label">name</label>
+
+            <div class="col-md-6">
+                <input type="name" class="form-control" name="name" value="{{ $element->name }}" required>
+            </div>
+        </div>
+        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+            <label class="col-md-4 control-label">email </label>
 
             <div class="col-md-6">
                 <input type="email" class="form-control" name="email" value="{{ $element->email }}" required>
