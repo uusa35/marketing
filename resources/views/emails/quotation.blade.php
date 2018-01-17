@@ -7,7 +7,9 @@
 <br>
 
 # تحية طيبة وبعد
-{!! $element->brief !!}
+<p style="font-family: Cairo">
+    {!! $element->brief !!}
+</p>
 <br>
 {{--@component('mail::table')--}}
 {{--| السعر       | {{ $element->title }}         |  |--}}
@@ -29,7 +31,9 @@
 
 @component('mail::panel')
 <div style="font-size: large; font-weight: bold; direction: rtl !important;">
-{!! $element->hints !!}
+    <p style="font-family: Cairo">
+        {!! $element->hints !!}
+    </p>
     </div>
 @endcomponent
 
