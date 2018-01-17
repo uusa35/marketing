@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Template;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('backend.modules.quotation.create');
+        $temps = Template::active()->get();
+        return view('backend.modules.quotation.create', compact('temps'));
     }
 
     public function toggleApprove(Request $request)
