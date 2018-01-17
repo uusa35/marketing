@@ -73,7 +73,7 @@
                                         <div class="mt-checkbox-list">
                                             <label class="mt-checkbox">
                                                 <input type="checkbox" name="temps[]"
-                                                       value="{{ $temp->id }}"> {{ $temp->name }}
+                                                       value="{{ $temp->id }}"> <a href="{{ asset('storage/uploads/files/'.$temp->url) }}">{{ $temp->name }}</a>
                                                 <span></span>
                                             </label>
                                         </div>

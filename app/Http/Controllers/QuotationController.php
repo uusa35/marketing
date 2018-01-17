@@ -60,7 +60,9 @@ class QuotationController extends Controller
         $element = Quotation::create($request->except('temps'));
         $element->templates()->attach($request->temps);
         if ($element) {
-            return redirect()->route('quotation.index')->with('success', 'process success');
+            $this->sendQuotation($element);
+            return redirect()->route('quotation.index')->with('success', 'Approved & Sent Successfully');
+//            return redirect()->route('quotation.index')->with('success', 'process success');
         }
         return redirect()->route('quotation.create')->with('error', 'process error');
     }
@@ -128,8 +130,12 @@ class QuotationController extends Controller
 
     public function send(Request $request)
     {
-
         $quotation = Quotation::whereId($request->id)->first();
+        $this->sendQuotation($quotation);
+        return redirect()->route('quotation.index')->with('success', 'Approved & Sent Successfully');
+    }
+
+    public function sendQuotation(Quotation $quotation) {
         $quotation->update(['approved' => true, 'sent' => true]);
         $element = new \App\Mail\Quotation($quotation);
         $emails = explode(';', $quotation->receivers);
@@ -139,7 +145,6 @@ class QuotationController extends Controller
             $ua['email'] = $ut;
             $users[$key] = (object)$ua;
         }
-        Mail::to($users)->send($element);
-        return redirect()->route('quotation.index')->with('success', 'Approved & Sent Successfully');
+        return Mail::to($users)->send($element);
     }
 }

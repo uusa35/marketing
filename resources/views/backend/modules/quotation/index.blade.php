@@ -100,15 +100,16 @@
                                             <i class="fa fa-fw fa-user"></i>edit</a>
                                     </li>
                                 @endif
+
+                                <li>
+                                    <a href="{{ route('toggle.approve',['model' => 'quotation', 'id' => $element->id]) }}">
+                                        <i class="fa fa-fw fa-user"></i>toggle approve</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('quotation.send',['id' => $element->id]) }}">
+                                        <i class="fa fa-fw fa-user"></i>approve & send </a>
+                                </li>
                                 @if(auth()->user()->isAdmin)
-                                    <li>
-                                        <a href="{{ route('toggle.approve',['model' => 'quotation', 'id' => $element->id]) }}">
-                                            <i class="fa fa-fw fa-user"></i>toggle approve</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('quotation.send',['id' => $element->id]) }}">
-                                            <i class="fa fa-fw fa-user"></i>approve & send </a>
-                                    </li>
                                     <li>
                                         <form method="post" action="{{ route('quotation.destroy',$element->id) }}">
                                             {{ csrf_field() }}

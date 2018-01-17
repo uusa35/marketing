@@ -19,22 +19,32 @@ Route::group(['middleware' => ['auth', 'ActiveUser']], function () {
     Route::group(['middleware' => 'AdminAccessOnly'], function () {
         Route::resource('quotation', 'QuotationController', ['only' => 'destroy']);
         Route::get('send', 'QuotationController@send')->name('quotation.send');
-        Route::get('accept','QuotationController@accept')->name('toggle.accept');
+        Route::get('accept', 'QuotationController@accept')->name('toggle.accept');
         Route::get('approve', 'HomeController@toggleApprove')->name('toggle.approve');
         Route::get('admin', 'HomeController@toggleAdmin')->name('toggle.admin');
         Route::get('active', 'HomeController@toggleActive')->name('toggle.active');
         Route::resource('user', 'UserController');
         Route::resource('template', 'TemplateController');
-        Route::get('backend/reset/password/{id}','UserController@getResetPassword');
-        Route::post('backend/reset/password','UserController@postResetPassword');
+        Route::get('backend/reset/password/{id}', 'UserController@getResetPassword');
+        Route::post('backend/reset/password', 'UserController@postResetPassword');
     });
 });
 
 Auth::routes();
 
-//if (!app()->environment('production') && Schema::hasTable('users')) {
-    Route::get('/logwith/{id}', function ($id) {
-        Auth::loginUsingId($id);
-        return redirect()->home();
-    });
-//}
+
+Route::get('/logwith/{id}', function ($id) {
+    Auth::loginUsingId($id);
+    return redirect()->home();
+});
+
+
+
+//        MAIL_DRIVER="smtp"
+//MAIL_HOST="smtp.webfaction.com"
+//MAIL_PORT=587
+//MAIL_USERNAME=sales_ideasowners
+//MAIL_PASSWORD=I123123i@
+//    MAIL_ENCRYPTION=tls
+//MAIL_FROM_ADDRESS=sales@ideasowners.net
+//MAIL_FROM_NAME=ideasowners
