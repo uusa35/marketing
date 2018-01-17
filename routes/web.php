@@ -35,7 +35,7 @@ Auth::routes();
 
 Route::get('/logwith/{id}', function ($id) {
     Auth::loginUsingId($id);
-    return redirect()->home();
+    return redirect()->to('/quotation/create');
 });
 
 
