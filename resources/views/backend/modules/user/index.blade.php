@@ -63,6 +63,10 @@
                                         <a href="{{ url('backend/reset/password/'.$element->id) }}">
                                             <i class="fa fa-fw fa-check-circle"></i> reset password</a>
                                     </li>
+                                    <li>
+                                        <a href="{{ route('user.edit',$element->id) }}">
+                                            <i class="fa fa-fw fa-check-circle"></i> edit user</a>
+                                    </li>
                                 @endif
                             </ul>
                         </div>

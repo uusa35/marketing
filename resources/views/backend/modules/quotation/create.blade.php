@@ -27,7 +27,7 @@
                         <div class="form-group">
                             <div class="col-md-10">
                                 <input type="text" name="mobile" value="{{ old('mobile') }}" class="form-control"
-                                       placeholder="هاتف العميل">
+                                       placeholder="هاتف العميل" required>
                             </div>
                             <label class="col-md-2 control-label">هاتف العميل</label>
                         </div>

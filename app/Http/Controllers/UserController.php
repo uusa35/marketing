@@ -59,7 +59,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $element = User::whereId($id)->first();
+        return view('backend.modules.user.edit', compact('element'));
     }
 
     /**
@@ -71,8 +72,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $element = User::whereId($id)->first();
+        if ($request->has('password')) {
+            $element->password = bcrypt($request->password);
+        }
+        $element->email = $request->email;
+        $element->save();
+
+        return redirect()->route('user.index')->with('success', 'user updated');
     }
+
 
     /**
      * Remove the specified resource from storage.
