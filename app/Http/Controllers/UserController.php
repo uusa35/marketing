@@ -77,6 +77,7 @@ class UserController extends Controller
             $element->password = bcrypt($request->password);
         }
         $element->email = $request->email;
+        $element->name = $request->name;
         $element->save();
 
         return redirect()->route('user.index')->with('success', 'user updated');
