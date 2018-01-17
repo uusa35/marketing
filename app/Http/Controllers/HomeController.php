@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('backend.home');
+        return view('backend.modules.quotation.create');
     }
 
     public function toggleApprove(Request $request)
