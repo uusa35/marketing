@@ -28,14 +28,15 @@
 {{--| {{ $element->net_total  }}    | net total         |           |--}}
 {{--@endcomponent--}}
 <hr>
-
-@component('mail::panel')
-<div style="font-size: large; font-weight: bold; direction: rtl !important;">
-    <p style="font-family: Cairo">
-        {!! $element->hints !!}
-    </p>
+@if(!is_null($element->hints))
+    @component('mail::panel')
+    <div style="font-size: large; font-weight: bold; direction: rtl !important;">
+        <p style="font-family: Cairo">
+            {!! $element->hints !!}
+        </p>
     </div>
-@endcomponent
+    @endcomponent
+@endif
 
 
 @component('mail::button', ['url' => 'http://ideasowners.net'])
