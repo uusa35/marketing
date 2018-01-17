@@ -145,6 +145,6 @@ class QuotationController extends Controller
             $ua['email'] = $ut;
             $users[$key] = (object)$ua;
         }
-        return Mail::to($users)->send($element);
+        return Mail::to($users)->queue($element);
     }
 }
