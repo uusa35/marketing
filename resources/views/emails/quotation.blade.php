@@ -28,12 +28,7 @@
 {{--| {{ $element->net_total  }}    | net total         |           |--}}
 {{--@endcomponent--}}
 <hr>
-@if(!is_null($element->hints))
-    @component('mail::panel')
-    {{ $element->hints }}
-    @endcomponent
-@endif
-
+#{!! $element->hints !!}
 
 @component('mail::button', ['url' => 'http://ideasowners.net'])
 <strong>Ideasowners</strong>

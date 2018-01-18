@@ -104,7 +104,6 @@ class QuotationController extends Controller
     {
         $request->request->remove('files');
         $element = Quotation::whereId($id)->first();
-        dd($request->all());
         if ($element->update($request->except('temps'))) {
             $element->templates()->sync($request->temps);
             return redirect()->route('quotation.index')->with('success', 'process success');
