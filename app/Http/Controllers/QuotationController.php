@@ -131,8 +131,10 @@ class QuotationController extends Controller
     public function send(Request $request)
     {
         $quotation = Quotation::whereId($request->id)->first();
-        $this->sendQuotation($quotation);
-        return redirect()->route('quotation.index')->with('success', 'Approved & Sent Successfully');
+        if($this->sendQuotation($quotation)) {
+            return redirect()->route('quotation.index')->with('success', 'Approved & Sent Successfully');
+        }
+        return redirect()->route('quotation.index')->with('error', 'Failure');
     }
 
     public function sendQuotation(Quotation $quotation) {
