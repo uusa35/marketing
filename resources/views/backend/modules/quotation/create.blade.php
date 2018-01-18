@@ -86,19 +86,21 @@
                         </br>
                         <div class="form-group">
                             <div class="col-md-10">
-                                <textarea name="brief" class="form-control summernote"
+                                <div name="brief" class="form-control summernote"
                                           style="min-height: 100px">
                                     بالاشارة الى الموضوع اعلاه نرفق لكم عرض السعر المطلوب حسب مكالمتنا الهاتفية
 
                                     مع تمنايتنا ان ينال العرض على رضاكم وثقتكم 
-                                </textarea>
+                                </div>
                             </div>
                             <label class="col-md-2 control-label">محتوى عرض السعر</label>
                         </div>
                         <div class="form-group">
                             <div class="col-md-10">
-                                    <textarea name="hints" class="form-control summernote"
-                                              style="min-height: 100px"></textarea>
+                                    <div name="hints" class="form-control summernote"
+                                              style="min-height: 100px">
+
+                                    </div>
                                 {{--summernote--}}
                             </div>
                             <label class="col-md-2 control-label">ملاحظات</label>
