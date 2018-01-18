@@ -30,7 +30,7 @@
 <hr>
 @if(!is_null($element->hints))
     @component('mail::panel')
-    {!! $element->hints !!}
+    {!! html_entity_decode($element->hints) !!}
     @endcomponent
 @endif
 

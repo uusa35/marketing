@@ -90,7 +90,7 @@ class QuotationController extends Controller
         $element = Quotation::whereId($id)->first();
         $elementTemps = $element->templates->pluck('id')->toArray();
         $temps = Template::active()->get();
-        return view('backend.modules.quotation.edit', compact('element','temps','elementTemps'));
+        return view('backend.modules.quotation.edit', compact('element', 'temps', 'elementTemps'));
     }
 
     /**
@@ -131,18 +131,17 @@ class QuotationController extends Controller
     public function send(Request $request)
     {
         $quotation = Quotation::whereId($request->id)->first();
-        if($this->sendQuotation($quotation)) {
-            return redirect()->route('quotation.index')->with('success', 'Approved & Sent Successfully');
-        }
-        return redirect()->route('quotation.index')->with('error', 'Failure');
+        $this->sendQuotation($quotation);
+        return redirect()->route('quotation.index')->with('success', 'Approved & Sent Successfully');
     }
 
-    public function sendQuotation(Quotation $quotation) {
+    public function sendQuotation(Quotation $quotation)
+    {
         $quotation->update(['approved' => true, 'sent' => true]);
         $element = new \App\Mail\Quotation($quotation);
         $emails = explode(';', $quotation->receivers);
         $users = [];
-        foreach($emails as $key => $ut){
+        foreach ($emails as $key => $ut) {
             $ua = [];
             $ua['email'] = $ut;
             $users[$key] = (object)$ua;
