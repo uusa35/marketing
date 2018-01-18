@@ -41,12 +41,14 @@
                                             class="fa fa-fw fa-plus-square"></i> Create New Quotation</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ route('template.create') }}">
+                        @if(auth()->user()->isAdmin)
+                            <li>
+                                <a href="{{ route('template.create') }}">
                                 <span class="details"><i
                                             class="fa fa-fw fa-plus-square"></i> Create New Template</span>
-                            </a>
-                        </li>
+                                </a>
+                            </li>
+                        @endif
                         <li>
                             <a href="{{ url('/logout') }}"
                                onclick="event.preventDefault();
