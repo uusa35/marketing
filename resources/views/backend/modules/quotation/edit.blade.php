@@ -84,15 +84,15 @@
 
                         <div class="form-group">
                             <div class="col-md-10">
-                                <textarea name="brief" class="form-control summernote"
-                                          style="min-height: 100px">{{ $element->brief }}</textarea>
+                                <div name="brief" class="form-control summernote"
+                                          style="min-height: 100px">{!! $element->brief !!}</div>
                             </div>
                             <label class="col-md-2 control-label">محتوى عرض السعر</label>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-10">
-                                <textarea name="hints" class="form-control summernote" style="min-height: 100px">{{ $element->hints }}</textarea>
+                                <div name="hints" class="form-control summernote" style="min-height: 100px">{!! $element->hints !!}</div>
                                 {{--summernote--}}
                             </div>
                             <label class="col-md-2 control-label">ملاحظات</label>
