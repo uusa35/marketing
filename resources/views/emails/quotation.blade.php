@@ -30,11 +30,7 @@
 <hr>
 @if(!is_null($element->hints))
     @component('mail::panel')
-    <div style="font-size: large; font-weight: bold; direction: rtl !important;">
-        <p style="font-family: Cairo">
-            {!! $element->hints !!}
-        </p>
-    </div>
+    {!! $element->hints !!}
     @endcomponent
 @endif
 
