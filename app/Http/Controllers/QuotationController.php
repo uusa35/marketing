@@ -144,7 +144,6 @@ class QuotationController extends Controller
     {
         $quotation->update(['approved' => true, 'sent' => true]);
         $element = new \App\Mail\Quotation($quotation);
-        dd($quotation);
         dd(env('MAIL_FROM_ADDRESS'));
         if(is_array($quotation->receivers)) {
             $emails = explode(';', $quotation->receivers);
