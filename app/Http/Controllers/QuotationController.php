@@ -144,7 +144,6 @@ class QuotationController extends Controller
     {
         $quotation->update(['approved' => true, 'sent' => true]);
         $element = new \App\Mail\Quotation($quotation);
-        dd(env('MAIL_FROM_ADDRESS'));
         if(is_array($quotation->receivers)) {
             $emails = explode(';', $quotation->receivers);
             $users = [];
@@ -156,6 +155,6 @@ class QuotationController extends Controller
         } else {
             $users = $quotation->receivers;
         }
-        return Mail::to($users)->cc(env('MAIL_FROM_ADDRESS'))->queue($element);
+        return Mail::to($users)->cc(config('mail.from.address'))->queue($element);
     }
 }
