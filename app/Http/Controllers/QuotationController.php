@@ -139,13 +139,17 @@ class QuotationController extends Controller
     {
         $quotation->update(['approved' => true, 'sent' => true]);
         $element = new \App\Mail\Quotation($quotation);
-        $emails = explode(';', $quotation->receivers);
-        $users = [];
-        foreach ($emails as $key => $ut) {
-            $ua = [];
-            $ua['email'] = $ut;
-            $users[$key] = (object)$ua;
+        if(is_array($quotation->receivers)) {
+            $emails = explode(';', $quotation->receivers);
+            $users = [];
+            foreach ($emails as $key => $ut) {
+                $ua = [];
+                $ua['email'] = $ut;
+                $users[$key] = (object)$ua;
+            }
+        } else {
+            $users = $quotation->receivers;
         }
-        return Mail::to($users)->cc('sales@ideasowners.net')->queue($element);
+        return Mail::to($users)->cc(env('MAIL_FROM_ADDRESS'))->queue($element);
     }
 }
