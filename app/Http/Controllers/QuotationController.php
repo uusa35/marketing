@@ -134,17 +134,15 @@ class QuotationController extends Controller
     public function send($id)
     {
         $quotation = Quotation::whereId($id)->first();
-        if($this->sendQuotation($quotation)) {
-            return redirect()->route('quotation.index')->with('success', 'Approved & Sent Successfully');
-        }
-        return redirect()->route('quotation.index')->with('error', 'error occured');
+        $this->sendQuotation($quotation);
+        return redirect()->route('quotation.index')->with('success', 'Approved & Sent Successfully');
     }
 
     public function sendQuotation(Quotation $quotation)
     {
         $quotation->update(['approved' => true, 'sent' => true]);
         $element = new \App\Mail\Quotation($quotation);
-        if(is_array($quotation->receivers)) {
+        if (is_array($quotation->receivers)) {
             $emails = explode(';', $quotation->receivers);
             $users = [];
             foreach ($emails as $key => $ut) {
