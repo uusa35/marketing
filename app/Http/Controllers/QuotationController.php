@@ -128,9 +128,12 @@ class QuotationController extends Controller
         return redirect()->route('quotation.index')->with('error', 'process error');
     }
 
-    public function send(Request $request)
+    /**
+     * @param  int $id
+     */
+    public function send($id)
     {
-        $quotation = Quotation::whereId($request->id)->first();
+        $quotation = Quotation::whereId($id)->first();
         $this->sendQuotation($quotation);
         return redirect()->route('quotation.index')->with('success', 'Approved & Sent Successfully');
     }

@@ -106,7 +106,7 @@
                                         <i class="fa fa-fw fa-user"></i>toggle approve</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('quotation.send',['id' => $element->id]) }}">
+                                    <a href="{{ route('quotation.send',$element->id) }}">
                                         <i class="fa fa-fw fa-user"></i>approve & send </a>
                                 </li>
                                 @if(auth()->user()->isAdmin)
